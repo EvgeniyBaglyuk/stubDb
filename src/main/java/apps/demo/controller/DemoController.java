@@ -4,10 +4,7 @@ import apps.demo.models.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
 import java.sql.SQLException;
@@ -19,8 +16,7 @@ import static apps.demo.dataBase.worksDB.selectUserByLogin;
 @RestController
 public class DemoController {
     @GetMapping("/getData")
-    ResponseEntity<?> getJson() {
-        String login = "user1";
+    ResponseEntity<?> getJson(@RequestParam(value = "login") String login) {
         User user = selectUserByLogin(login);
         if (user == null) {
             return new ResponseEntity<>(new SQLException(), HttpStatusCode.valueOf(500));
