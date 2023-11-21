@@ -1,10 +1,14 @@
 package apps.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.util.Date;
 
 public class User {
     private String login;
     private String password;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy", timezone = "UTC")
     private Date date;
     private String email;
 
@@ -55,5 +59,15 @@ public class User {
                 ", date=" + date +
                 ", email='" + email + '\'' +
                 '}';
+    }
+    public String toJsonString() {
+        try {
+            //преобразование объекта в JSON
+            ObjectMapper objectMapper = new ObjectMapper();
+            return objectMapper.writeValueAsString(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

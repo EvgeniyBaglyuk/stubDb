@@ -1,5 +1,6 @@
 package apps.demo.controller;
 
+import apps.demo.filemanagement.ReadFile;
 import apps.demo.models.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -10,8 +11,14 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
 
-import static apps.demo.dataBase.worksDB.insertUser;
-import static apps.demo.dataBase.worksDB.selectUserByLogin;
+import static apps.demo.dbmanagement.worksDB.insertUser;
+import static apps.demo.dbmanagement.worksDB.selectUserByLogin;
+import static apps.demo.filemanagement.WriteFile.writeFile;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+
 
 @RestController
 public class DemoController {
@@ -21,7 +28,14 @@ public class DemoController {
         if (user == null) {
             return new ResponseEntity<>(new SQLException(), HttpStatusCode.valueOf(500));
         }
+        writeFile(user);
         return new ResponseEntity<>(user, HttpStatus.OK);
+    }
+
+    @GetMapping("/getRandomStringFromFile")
+    public ResponseEntity<?> getRandomStringFromFile() {
+        String randomLine = ReadFile.readFile();
+        return new ResponseEntity<>(randomLine, HttpStatus.OK);
     }
 
     @PostMapping("/postData")
@@ -29,7 +43,6 @@ public class DemoController {
 
         LocalDate date = LocalDate.now();
         user.setDate(Date.valueOf(date));
-        user.setEmail(user.getLogin() + "@mail.ru");
         int rowCount = insertUser(user);
 
         if (user.getLogin().isEmpty() || user.getPassword().isEmpty()) {

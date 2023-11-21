@@ -1,0 +1,14 @@
+{"login":"user1","password":"password1","date":"11.11.2023","email":"user1@example.com"}
+{"login":"user2","password":"password2","date":"11.11.2023","email":"user2@example.com"}
+{"login":"user3","password":"password3","date":"11.11.2023","email":"user3@example.com"}
+{"login":"user4","password":"password4","date":"11.11.2023","email":"user4@example.com"}
+{"login":"user5","password":"password5","date":"11.11.2023","email":"user5@example.com"}
+{"login":"user6","password":"password6","date":"19.11.2023","email":"user6@mail.ru"}
+{"login":"user7","password":"password7","date":"19.11.2023","email":"user7@mail.ru"}
+{"login":"user8","password":"password8","date":"19.11.2023","email":"user8@mail.ru"}
+{"login":"user9","password":"password9","date":"19.11.2023","email":"user9@mail.ru"}
+{"login":"user10","password":"password10","date":"19.11.2023","email":"user10@mail.ru"}
+{"login":"user6","password":"password6","date":"19.11.2023","email":"user6@mail.ru"}
+{"login":"user10","password":"password10","date":"19.11.2023","email":"user10@mail.ru"}
+{"login":"user6","password":"password6","date":"19.11.2023","email":"user6@mail.ru"}
+{"login":"user6","password":"password6","date":"19.11.2023","email":"user6@mail.ru"}

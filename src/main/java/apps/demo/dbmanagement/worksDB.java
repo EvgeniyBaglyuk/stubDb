@@ -1,4 +1,4 @@
-package apps.demo.dataBase;
+package apps.demo.dbmanagement;
 
 import apps.demo.models.User;
 
